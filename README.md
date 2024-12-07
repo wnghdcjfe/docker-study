@@ -102,19 +102,12 @@ docker push 211883824040.dkr.ecr.ap-northeast-2.amazonaws.com/laravel-04-fixed-c
      ```
 
 4. **서브넷 생성 및 라우팅 테이블 연결**:
-- 서브넷 확인 :
+- 서브넷 확인 생성 라우팅 테이블 연결
    ```
    aws ec2 describe-subnets --filters "Name=vpc-id,Values=vpc-083cd7b7698a6b620"
-   ```
-- 서브넷 생성:
-  ```bash
-  aws ec2 create-subnet --vpc-id vpc-083cd7b7698a6b620 --cidr-block 10.0.1.0/24
-  ```
-- 라우팅 테이블 연결:
-  ```bash
- aws ec2 associate-route-table \
- --subnet-id subnet-06d10a8234710cc45 \
- --route-table-id rtb-0aaadc32ab97444da 
-  ```
-
- 
+   aws ec2 create-subnet --vpc-id vpc-083cd7b7698a6b620 --cidr-block 10.0.1.0/24
+   
+   aws ec2 associate-route-table \
+    --subnet-id subnet-06d10a8234710cc45 \
+    --route-table-id rtb-0aaadc32ab97444da 
+   ``` 
